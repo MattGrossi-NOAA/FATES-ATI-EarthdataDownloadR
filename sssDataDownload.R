@@ -7,7 +7,7 @@
 # ============================================================================ #
 
 # Libraries
-# install.packages(c("devtools", "earthdatalogin", "terra"))
+# install.packages(c("devtools", "terra"))
 # devtools::install_github("boettiger-lab/earthdatalogin")
 library(earthdatalogin)
 library(terra)
