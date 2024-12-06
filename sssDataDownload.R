@@ -17,8 +17,8 @@ library(terra)
 # Recommend deleting your login credentials from this RScript once this is run
 # successfully.
 # earthdatalogin::edl_netrc(
-#   username = "user", # add your user name
-#   password = "password" # add you password
+#   username = "user",
+#   password = "password"
 # )
 # This information will be saved to a `netrc` file stored here:
 # earthdatalogin::edl_netrc_path()
@@ -26,8 +26,9 @@ library(terra)
 # Authenticate using the `netrc` file created above
 earthdatalogin::edl_netrc()
 
-# Define the data we want. Using a bounding box to limit the amount of data we
-# download and the corresponding file sizes
+# Define the data we want. The "short name" comes from the dataset landing page
+# linked above. It can be found under the "Information" tab. Use a bounding box
+# to limit the amount of data we download and the corresponding file sizes.
 short_name <- "SMAP_RSS_L3_SSS_SMI_MONTHLY_V4"
 bbox <- c(ymin = -84.5,
           ymax = -75.0,
@@ -37,7 +38,8 @@ bbox <- c(ymin = -84.5,
 # Fetch the data from the S3 cloud bucket
 results <- earthdatalogin::edl_search(
   short_name = short_name,
-  bounding_box = paste(bbox,collapse=","))
+  bounding_box = paste(bbox,collapse=",")
+)
 
 # Download the data to working directory (change if desired)
 outDir <- getwd()
